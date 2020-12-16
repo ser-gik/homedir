@@ -23,7 +23,7 @@ filetype plugin indent on    " required
 " Common
 set t_Co=256
 set bg=dark
-let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italic=0
 colorscheme gruvbox
 syntax on
@@ -42,7 +42,6 @@ set cindent
 set autoindent
 set ffs=unix,dos
 set mouse=a
-set spell
 
 if has("gui_running")
     set guifont=Terminus:h14:cANSI
@@ -63,18 +62,25 @@ match ExtraWhitespace /\s\+$/
 highlight clear SpellBad
 highlight SpellBad cterm=underline
 
+nmap <Leader>s :set spell!<CR>
+nmap <Leader>w :set wrap!<CR>
+
 " Plugin-specific settings
 
 " NERDTree
-nmap \nt :NERDTreeToggle<CR>
-nmap \nl :NERDTreeFind<CR>
+nmap <Leader>nt :NERDTreeToggle<CR>
+nmap <Leader>nl :NERDTreeFind<CR>
+
 " YCM
 nmap <C-b> :YcmCompleter GoTo<CR>
-
+nmap <Leader>yu :YcmCompleter GoToReferences<CR>
+nmap <Leader>yf :YcmCompleter FixIt<CR>
+nmap <Leader>yr :YcmCompleter RefactorRename <C-r><C-w>
+let g:ycm_clangd_uses_ycmd_caching = 0
+let g:ycm_clangd_args = ['-log=verbose', '-pretty']
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = 'context'
-
 
 " Syntastic
 " set statusline+=%#warningmsg#
