@@ -61,6 +61,7 @@ vim.lsp.enable({
     'rust_analyzer',
     'slang_server',
     'basedpyright',
+    'starpls',
 })
 
 

@@ -1,6 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 call plug#begin()
 
 Plug 'bogado/file-line'
